@@ -10,11 +10,8 @@ import java.util.ArrayList;
 @RestController
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
+    private CustomerRepository customerRepository = new CustomerRepository();
 
-    public CustomerController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     @GetMapping("/")
     public String index() {
