@@ -1,7 +1,9 @@
 package hutnas.nottunes.controllers;
 
+import hutnas.nottunes.data_access.CustomerCountryRepository;
 import hutnas.nottunes.data_access.CustomerRepository;
 import hutnas.nottunes.models.Customer;
+import hutnas.nottunes.models.CustomerCountry;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 public class CustomerController {
 
     private CustomerRepository customerRepository = new CustomerRepository();
-
+    private CustomerCountryRepository countryRepository = new CustomerCountryRepository();
 
     @GetMapping("/")
     public String index() {
@@ -45,6 +47,17 @@ public class CustomerController {
     @RequestMapping(value = "api/customers", method = RequestMethod.POST)
     public Boolean addNewCustomer(@RequestBody Customer customer){
         return customerRepository.addCustomer(customer);
+    }
+
+    //Update customer
+    @RequestMapping(value = "api/customer/{id}", method = RequestMethod.PUT)
+    public Boolean updateExistingCustomer(@PathVariable String id, @RequestBody Customer customer){
+        return customerRepository.updateExistingCustomer(customer);
+    }
+
+    @RequestMapping(value = "api/countries", method = RequestMethod.GET)
+    public ArrayList<CustomerCountry> getAllCustomerCountries(){
+        return countryRepository.getAllCustomerCountries();
     }
 
 }
