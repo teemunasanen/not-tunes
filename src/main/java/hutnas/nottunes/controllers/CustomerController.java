@@ -12,7 +12,6 @@ public class CustomerController {
 
     private CustomerRepository customerRepository = new CustomerRepository();
 
-
     @GetMapping("/")
     public String index() {
         return "This is the root page";
@@ -45,6 +44,12 @@ public class CustomerController {
     @RequestMapping(value = "api/customers", method = RequestMethod.POST)
     public Boolean addNewCustomer(@RequestBody Customer customer){
         return customerRepository.addCustomer(customer);
+    }
+
+    //Update customer
+    @RequestMapping(value = "api/customer/{id}", method = RequestMethod.PUT)
+    public Boolean updateExistingCustomer(@PathVariable String id, @RequestBody Customer customer){
+        return customerRepository.updateExistingCustomer(customer);
     }
 
 }

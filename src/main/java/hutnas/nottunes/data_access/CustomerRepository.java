@@ -5,7 +5,6 @@ import hutnas.nottunes.models.Customer;
 import java.sql.*;
 import java.util.ArrayList;
 
-
 public class CustomerRepository {
     // Setting up the connection object
     private String URL = ConnectionHelper.CONNECTION_URL;
@@ -220,6 +219,47 @@ public class CustomerRepository {
         }
         return success;
     }
+
+    //UPDATE EXISTING CUSTOMER
+    public Boolean updateExistingCustomer(Customer customer){
+        Boolean success = false;
+        try{
+            // Connect to DB
+            conn = DriverManager.getConnection(URL);
+            System.out.println("Connection to Chinook SQLite established.");
+
+            // Make SQL query
+            PreparedStatement preparedStatement =
+                    conn.prepareStatement("UPDATE Customer SET FirstName = ?, LastName = ?, Country = ?, PostalCode = ?, Phone = ?, Email= ? WHERE CustomerId = ?");
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getCountry());
+            preparedStatement.setString(4, customer.getPostalCode());
+            preparedStatement.setString(5, customer.getPhone());
+            preparedStatement.setString(6, customer.getEmail());
+            preparedStatement.setString(7, customer.getCustomerId());
+
+            // Execute Query
+            int result = preparedStatement.executeUpdate();
+            success = (result != 0);
+            System.out.println("Customer updated successfully.");
+        }
+        catch (Exception ex) {
+            System.out.println("Something went wrong...");
+            System.out.println(ex.toString());
+        }  finally {
+            try {
+                // Close Connection
+                conn.close();
+            } catch (Exception ex) {
+                System.out.println("Something went wrong while closing the connection.");
+                System.out.println(ex.toString());
+            }
+        }
+        return success;
+    }
+
+
 
 
 }
