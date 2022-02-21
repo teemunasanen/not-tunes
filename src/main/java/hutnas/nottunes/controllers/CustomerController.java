@@ -23,15 +23,28 @@ public class CustomerController {
         return customerRepository.getAllCustomers();
     }
 
+    //Example endpoint: /api/customer/1
     @RequestMapping(value = "/api/customer/{id}", method = RequestMethod.GET)
     public Customer getCustomerById(@PathVariable String id) {
         return customerRepository.getCustomerById(id);
     }
 
+    //Example endpoint: /api/customer?name=daan
     @RequestMapping(value = "/api/customer", method = RequestMethod.GET)
     public Customer getCustomerByName(@RequestParam(value = "name") String name) {
         return customerRepository.getCustomerByName(name);
     }
 
+    //Example endpoint: /api/customers/10?offset=20
+    @RequestMapping(value = "/api/customers/{limit}", method = RequestMethod.GET)
+    public ArrayList<Customer> getCustomersByLimitAndOffset(@PathVariable(value="limit") String limit, @RequestParam(value="offset") String offset){
+        return customerRepository.getCustomersByLimitAndOffset(limit, offset);
+    }
+
+    //Add new customer
+    @RequestMapping(value = "api/customers", method = RequestMethod.POST)
+    public Boolean addNewCustomer(@RequestBody Customer customer){
+        return customerRepository.addCustomer(customer);
+    }
 
 }
