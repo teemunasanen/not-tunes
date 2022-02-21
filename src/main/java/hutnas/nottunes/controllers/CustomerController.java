@@ -15,10 +15,6 @@ public class CustomerController {
     private CustomerRepository customerRepository = new CustomerRepository();
     private CustomerCountryRepository countryRepository = new CustomerCountryRepository();
 
-    @GetMapping("/")
-    public String index() {
-        return "This is the root page";
-    }
 
     @RequestMapping(value = "/api/customers", method = RequestMethod.GET)
     public ArrayList<Customer> getAllCustomers(){
