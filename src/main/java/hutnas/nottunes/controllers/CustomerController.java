@@ -22,4 +22,16 @@ public class CustomerController {
     public ArrayList<Customer> getAllCustomers(){
         return customerRepository.getAllCustomers();
     }
+
+    @RequestMapping(value = "/api/customer/{id}", method = RequestMethod.GET)
+    public Customer getCustomerById(@PathVariable String id) {
+        return customerRepository.getCustomerById(id);
+    }
+
+    @RequestMapping(value = "/api/customer", method = RequestMethod.GET)
+    public Customer getCustomerByName(@RequestParam(value = "name") String name) {
+        return customerRepository.getCustomerByName(name);
+    }
+
+
 }
