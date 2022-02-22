@@ -221,7 +221,7 @@ public class CustomerRepository {
     }
 
     //UPDATE EXISTING CUSTOMER
-    public Boolean updateExistingCustomer(Customer customer){
+    public Boolean updateExistingCustomer(Customer customer, String id){
         Boolean success = false;
         try{
             // Connect to DB
@@ -237,7 +237,7 @@ public class CustomerRepository {
             preparedStatement.setString(4, customer.getPostalCode());
             preparedStatement.setString(5, customer.getPhone());
             preparedStatement.setString(6, customer.getEmail());
-            preparedStatement.setString(7, customer.getCustomerId());
+            preparedStatement.setString(7, id);
 
             // Execute Query
             int result = preparedStatement.executeUpdate();
