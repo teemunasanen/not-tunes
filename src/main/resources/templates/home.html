@@ -8,30 +8,36 @@
     <title>Welcome to not-tunes</title>
 </head>
 <body>
-
-<!--a) The home page view, showing the 5 random artists, 5 random songs, and 5 random genres. This home page
-contains a search bar which is used to search for tracks. The search bar should not be empty, meaning you can’t
-have an empty search criterion.-->
-
-<h1>Not-Tunes</h1>
 <div>
-    <form>
-        <input type="text" placeholder="Search track">
-        <button type="submit">Search</button>
-    </form>
-</div>
-<div>
-    <h2>5 Random Artists</h2>
-</div>
+    <h1>Not-Tunes</h1>
+    <div>
+        <form name="searchForm" id="searchForm" th:action="@{/results}">
+            <label for="searchInput">Search track by name:</label>
+            <input type="text" id="searchInput" th:name="query" required/>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div>
+        <h2>5 Random Artists</h2>
+        <ul th:each="artist: ${artists}">
+            <li th:text="${artist.getName()}"></li>
+        </ul>
+    </div>
 
-<div>
-    <h2>5 Random Songs</h2>
-</div>
+    <div>
+        <h2>5 Random Songs</h2>
+        <ul th:each="track: ${tracks}">
+            <li th:text="${track.getName()}"></li>
+        </ul>
+    </div>
 
-<div>
-    <h2>5 Random Genres</h2>
+    <div>
+        <h2>5 Random Genres</h2>
+        <ul th:each="genre: ${genres}">
+            <li th:text="${genre.getName()}"></li>
+        </ul>
+    </div>
 </div>
-
 
 </body>
 </html>

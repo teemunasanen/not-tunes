@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
-public class TrackRepository {
+public class SearchRepository {
 
     private String URL = ConnectionHelper.CONNECTION_URL;
     private Connection conn = null;
@@ -54,5 +54,6 @@ public class TrackRepository {
         }
         return tracks;
     }
+
 }
 

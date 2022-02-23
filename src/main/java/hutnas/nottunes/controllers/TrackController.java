@@ -1,7 +1,7 @@
 package hutnas.nottunes.controllers;
 
 import hutnas.nottunes.data_access.NotTunesRepository;
-import hutnas.nottunes.data_access.TrackRepository;
+import hutnas.nottunes.data_access.SearchRepository;
 import hutnas.nottunes.models.Artist;
 import hutnas.nottunes.models.Genre;
 import hutnas.nottunes.models.Track;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @RestController
 public class TrackController {
 
-    private TrackRepository trackRepository = new TrackRepository();
+    private SearchRepository trackRepository = new SearchRepository();
     private NotTunesRepository randomRepository = new NotTunesRepository();
 
     @RequestMapping (value="track", method = RequestMethod.GET )
