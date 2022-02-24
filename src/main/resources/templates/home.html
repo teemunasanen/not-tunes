@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<!--<link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
-<link rel="stylesheet" th:href="@{/css/main.css}">
-<script th:src="@{/js/bootstrap.min.js}"></script>-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 <head>
     <meta charset="UTF-8">
     <title>Welcome to not-tunes</title>
 </head>
 <body>
-<div>
-    <h1>Not-Tunes</h1>
-    <div>
+<div class="container pb-5">
+    <h1 class="pb-3">Not-Tunes</h1>
+    <div class="container p-3">
         <form name="searchForm" id="searchForm" th:action="@{/results}">
-            <label for="searchInput">Search track by name:</label>
-            <input type="text" id="searchInput" th:name="query" required/>
-            <button type="submit">Search</button>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="searchInput">Search track by name:</label>
+                </div>
+                <div class="col-auto">
+                    <input class="form-control" type="text" id="searchInput" th:name="query" required/>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
         </form>
     </div>
-    <div>
+    <div class="container pt-3">
         <h2>5 Random Artists</h2>
-        <ul th:each="artist: ${artists}">
-            <li th:text="${artist.getName()}"></li>
+        <ul class="list-group list-group-flush" th:each="artist: ${artists}">
+            <li class="list-group-item" th:text="${artist.getName()}"></li>
         </ul>
     </div>
-
-    <div>
+    <div class="container pt-3">
         <h2>5 Random Songs</h2>
-        <ul th:each="track: ${tracks}">
-            <li th:text="${track.getName()}"></li>
+        <ul class="list-group list-group-flush" th:each="track: ${tracks}">
+            <li class="list-group-item" th:text="${track.getName()}"></li>
         </ul>
     </div>
-
-    <div>
+    <div class="container pt-3">
         <h2>5 Random Genres</h2>
-        <ul th:each="genre: ${genres}">
-            <li th:text="${genre.getName()}"></li>
+        <ul class="list-group list-group-flush" th:each="genre: ${genres}">
+            <li class="list-group-item" th:text="${genre.getName()}"></li>
         </ul>
     </div>
 </div>
-
 </body>
 </html>
