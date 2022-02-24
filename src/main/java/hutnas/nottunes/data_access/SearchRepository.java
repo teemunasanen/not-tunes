@@ -23,8 +23,9 @@ public class SearchRepository {
 
             // Prepare Statement
             PreparedStatement preparedStatement =
-                    conn.prepareStatement("SELECT Track.TrackId, Track.Name, Artist.Name as Artist, Album.Title, Genre.Name as Genre FROM Track JOIN Album ON Track.AlbumId=Album.AlbumId JOIN Genre ON Track.GenreId=Genre.GenreId JOIN Artist ON Artist.ArtistId=Album.ArtistId WHERE Track.Name LIKE ?");
-            preparedStatement.setString(1, name);
+                    conn.prepareStatement("SELECT Track.TrackId, Track.Name, Artist.Name as Artist, Album.Title, Genre.Name as Genre FROM Track JOIN Album ON Track.AlbumId=Album.AlbumId JOIN Genre ON Track.GenreId=Genre.GenreId JOIN Artist ON Artist.ArtistId=Album.ArtistId WHERE Track.Name LIKE ? OR Artist.Name LIKE ?");
+            preparedStatement.setString(1, "%" + name + "%");
+            preparedStatement.setString(2, "%" + name + "%");
             // Execute Statement
             ResultSet resultSet = preparedStatement.executeQuery();
 

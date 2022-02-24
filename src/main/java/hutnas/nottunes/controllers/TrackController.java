@@ -16,22 +16,22 @@ public class TrackController {
     private SearchRepository trackRepository = new SearchRepository();
     private NotTunesRepository randomRepository = new NotTunesRepository();
 
-    @RequestMapping (value="track", method = RequestMethod.GET )
+    @RequestMapping (value="api/track", method = RequestMethod.GET )
     public ArrayList<Track> getTracksByName(@RequestParam(value = "name") String name){
         return trackRepository.getTracksByName(name);
     }
 
-    @RequestMapping (value="track/random", method = RequestMethod.GET)
+    @RequestMapping (value="api/random/track", method = RequestMethod.GET)
     public ArrayList<Track> getRandomTracks(){
         return randomRepository.getRandomTracks();
     }
 
-    @RequestMapping (value="artist/random", method = RequestMethod.GET)
+    @RequestMapping (value="api/random/artist", method = RequestMethod.GET)
     public ArrayList<Artist> getRandomArtists(){
         return randomRepository.getRandomArtists();
     }
 
-    @RequestMapping (value="genre/random", method = RequestMethod.GET)
+    @RequestMapping (value="api/random/genre", method = RequestMethod.GET)
     public ArrayList<Genre> getRandomGenres(){
         return randomRepository.getRandomGenres();
     }
