@@ -35,7 +35,7 @@ public class CustomerGenreRepository {
             while (resultSet.next()) {
                 results.add(
                         new CustomerGenre(
-                        resultSet.getString("CustomerId"),
+                        resultSet.getInt("CustomerId"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("LastName"),
                         resultSet.getString("Name"),

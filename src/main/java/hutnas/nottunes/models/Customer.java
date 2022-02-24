@@ -1,7 +1,7 @@
 package hutnas.nottunes.models;
 
 public class Customer {
-    private String customerId;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String country;
@@ -9,7 +9,7 @@ public class Customer {
     private String phone;
     private String email;
 
-    public Customer(String customerId, String firstName, String lastName, String country, String postalCode, String phone, String email) {
+    public Customer(int customerId, String firstName, String lastName, String country, String postalCode, String phone, String email) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,11 +19,11 @@ public class Customer {
         this.email = email;
     }
 
-    public String getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 

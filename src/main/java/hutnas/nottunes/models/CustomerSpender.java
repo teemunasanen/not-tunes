@@ -1,23 +1,23 @@
 package hutnas.nottunes.models;
 
 public class CustomerSpender {
-    private String customerId;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String total;
 
-    public CustomerSpender(String customerId, String firstName, String lastName, String total) {
+    public CustomerSpender(int customerId, String firstName, String lastName, String total) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.total = total;
     }
 
-    public String getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 

@@ -28,7 +28,7 @@ public class CustomerRepository {
             while (resultSet.next()) {
                 customers.add(
                         new Customer(
-                                resultSet.getString("CustomerID"),
+                                resultSet.getInt("CustomerID"),
                                 resultSet.getString("FirstName"),
                                 resultSet.getString("LastName"),
                                 resultSet.getString("Country"),
@@ -71,7 +71,7 @@ public class CustomerRepository {
             // Process Results
             while (resultSet.next()) {
                 customer = new Customer(
-                        resultSet.getString("CustomerID"),
+                        resultSet.getInt("CustomerID"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("LastName"),
                         resultSet.getString("Country"),
@@ -112,7 +112,7 @@ public class CustomerRepository {
             // Process Results
             while (resultSet.next()) {
                 customer = new Customer(
-                        resultSet.getString("CustomerID"),
+                        resultSet.getInt("CustomerID"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("LastName"),
                         resultSet.getString("Country"),
@@ -156,7 +156,7 @@ public class CustomerRepository {
             while (resultSet.next()) {
                 customers.add(
                         new Customer(
-                                resultSet.getString("CustomerID"),
+                                resultSet.getInt("CustomerID"),
                                 resultSet.getString("FirstName"),
                                 resultSet.getString("LastName"),
                                 resultSet.getString("Country"),
@@ -192,7 +192,7 @@ public class CustomerRepository {
             // Make SQL query
             PreparedStatement preparedStatement =
                     conn.prepareStatement("INSERT INTO Customer(CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email ) VALUES(?,?,?,?,?,?,?)");
-            preparedStatement.setString(1, customer.getCustomerId());
+            preparedStatement.setInt(1, customer.getCustomerId());
             preparedStatement.setString(2, customer.getFirstName());
             preparedStatement.setString(3, customer.getLastName());
             preparedStatement.setString(4, customer.getCountry());

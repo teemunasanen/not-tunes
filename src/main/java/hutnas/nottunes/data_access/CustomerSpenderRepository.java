@@ -32,7 +32,7 @@ public class CustomerSpenderRepository {
             while (resultSet.next()) {
                 spenders.add(
                         new CustomerSpender(
-                                resultSet.getString("CustomerId"),
+                                resultSet.getInt("CustomerId"),
                                 resultSet.getString("FirstName"),
                                 resultSet.getString("LastName"),
                                 resultSet.getString("Total")

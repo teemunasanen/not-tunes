@@ -1,13 +1,13 @@
 package hutnas.nottunes.models;
 
 public class CustomerGenre {
-    private String customerId;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String favoriteGenre;
     private String amountOfSongs;
 
-    public CustomerGenre(String customerId, String firstName, String lastName, String favoriteGenre, String amountOfSongs) {
+    public CustomerGenre(int customerId, String firstName, String lastName, String favoriteGenre, String amountOfSongs) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,11 +15,11 @@ public class CustomerGenre {
         this.amountOfSongs = amountOfSongs;
     }
 
-    public String getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 
