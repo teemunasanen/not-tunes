@@ -1,6 +1,7 @@
 # not-tunes
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![web](https://img.shields.io/static/v1?logo=icloud&message=Online&label=web&color=success)](https://not-tunes.herokuapp.com/)
 
 ### Noroff Java Fullstack bootcamp Assignment 6: not-tunes Spring Boot Web API
 
